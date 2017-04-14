@@ -191,6 +191,16 @@ func TestPackageExpression(t *testing.T) {
 	}
 }
 
+// first seen with github.com/bgentry/speakeasy
+func TestLicenseUnderscore(t *testing.T) {
+	err := compareTestLicenses([]string{"colors/clear"}, []testResult{
+		{Package: "colors/clear", License: "Apache License 2.0", Score: 100},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestCleanLicenseData(t *testing.T) {
 	data := `The MIT License (MIT)
 
